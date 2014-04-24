@@ -153,6 +153,7 @@
 
       this.element.val(this.values.join(', '))
       this.element.trigger('added', [value])
+	  this.options.add_callback && this.options.add_callback.call(this)
     }
   , remove: function ( index ) {
       if ( index >= 0 ) {
@@ -161,6 +162,7 @@
         this.element.val(this.values.join(', '))
 
         this.element.trigger('removed', [value])
+		this.options.remove_callback && this.options.remove_callback.call(this)
       }
     }
   , process: function () {
